@@ -1,6 +1,7 @@
 return {
-  "simrat39/symbols-outline.nvim",
+  "hedyhli/outline.nvim",
+  cmd = { "Outline", "OutlineOpen" },
   config = function()
-    require("symbols-outline").setup()
+    require("outline").setup()
   end
 }

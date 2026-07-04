@@ -40,10 +40,9 @@ return {
       spacing = 3,
       align = "left",
     },
-    defer = {
-      gc = true,
-      gb = true,
-    },
+    defer = function(ctx)
+      return ctx.operator == "gc" or ctx.operator == "gb"
+    end,
     show_help = true,
     show_keys = true,
     triggers = {

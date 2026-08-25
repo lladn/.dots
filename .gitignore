@@ -1,0 +1,44 @@
+# OS cruft
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor swap/backup files
+*.swp
+*.swo
+*~
+*.bak
+
+# Neovim runtime/data (not part of config, shouldn't be tracked)
+nvim/.config/nvim/.luarc.json
+nvim/.config/nvim/lazy-lock.json.bak
+nvim/.config/nvim/spell/*.spl
+nvim/.config/nvim/spell/*.sug
+
+# Shada / undo / session files if they ever land inside the repo
+*.shada
+*.shada.tmp
+undodir/
+
+# Zsh
+.zsh_history
+.zcompdump*
+.zsh_sessions/
+
+# tmux
+.tmux/plugins/
+.tmux/resurrect/
+
+# Ghostty (in case any local overrides get generated)
+ghostty/.config/ghostty/*.local
+
+# Stow artifacts / broken symlinks report
+*.orig
+
+# Local/secret overrides you don't want committed
+*.local
+.env

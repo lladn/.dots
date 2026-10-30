@@ -51,10 +51,23 @@ font-family = Hack Nerd Font Mono
 
 font-size = 12
 background-opacity = 0.9
-theme = Catppuccin Macchiato
+background-blur = true
+theme = Catppuccin Mocha
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 macos-icon = blueprint
+macos-titlebar-proxy-icon=hidden
+macos-window-buttons = hidden
+font-family = Hack Nerd Font
+adjust-cell-height = 15%
 
-window-height = 60
-window-width = 143
+
+
+window-height = 62
+window-width = 224
+
+
+# window-padding-x = 5
+# window-padding-y = 5
+window-padding-balance = true 
+copy-on-select = clipboard

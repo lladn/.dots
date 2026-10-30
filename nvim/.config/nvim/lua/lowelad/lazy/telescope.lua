@@ -13,6 +13,14 @@ return {
           '--line-number', '--column', '--smart-case', '--hidden',
         },
         file_ignore_patterns = { '%.git/' },
+        mappings = {
+          i = {
+            ['<C-j>'] = 'move_selection_next',
+            ['<C-k>'] = 'move_selection_previous',
+            ['<C-h>'] = function() vim.api.nvim_input('<Left>') end,
+            ['<C-l>'] = function() vim.api.nvim_input('<Right>') end,
+          },
+        },
       },
       pickers = {
         find_files = {

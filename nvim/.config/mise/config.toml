@@ -1,5 +1,6 @@
 [tools]
 "cargo:tree-sitter-cli" = "latest"
 go = "latest"
+herdr = "latest"
 node = "lts"
 "npm:tree-sitter-cli" = "latest"

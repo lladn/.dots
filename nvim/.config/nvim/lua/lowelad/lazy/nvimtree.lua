@@ -8,6 +8,9 @@ return {
   config = function()
     require("nvim-tree").setup(
       {
+        on_attach = function(bufnr)
+          require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
+        end,
         view = {
           adaptive_size = true,
         },

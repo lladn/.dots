@@ -28,8 +28,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 which_key.add({
-  { "<leader>e", "<cmd>NvimTreeToggle<CR>",                              desc = "Toggle file explorer" },
-  { "<leader>w", "<cmd>up<CR>",                                          desc = "Save current file" },
+  { "<leader>e", "<cmd>NvimTreeToggle<CR>",                              desc = "Toggle file explorer" },  { "<leader>w", "<cmd>up<CR>",                                          desc = "Save current file" },
   { "<leader>W", "<cmd>wa<CR>",                                          desc = "Save all files" },
   { "<leader>q", "<cmd>bdelete<CR>",                                     desc = "Close current buffer" },
   { "<leader>Q", "<cmd>qa<CR>",                                          desc = "Quit all and exit" },

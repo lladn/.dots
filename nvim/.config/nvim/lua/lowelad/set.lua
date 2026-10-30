@@ -19,4 +19,6 @@ vim.opt.incsearch = true -- incremental search
 vim.opt.termguicolors = true
 
 
-vim.opt.shortmess:append("I") -- get rid of the logo 
+vim.opt.shortmess:append("I") -- get rid of the logo
+vim.opt.undofile = true       -- presistent undo across session
+vim.opt.scrolloff = 16        -- keep cursor away from the edge

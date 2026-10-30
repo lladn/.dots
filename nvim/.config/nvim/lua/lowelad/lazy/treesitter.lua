@@ -10,7 +10,7 @@ return {
     })
 
     local ensure_installed = {
-      "c", "lua", "vim", "vimdoc", "elixir", "javascript", "html", "python", "typescript", "go"
+      "c", "lua", "vim", "vimdoc", "elixir", "javascript", "html", "python", "typescript", "go", "markdown", "markdown_inline"
     }
     local installed = require("nvim-treesitter.config").get_installed()
     local to_install = vim.tbl_filter(function(lang)

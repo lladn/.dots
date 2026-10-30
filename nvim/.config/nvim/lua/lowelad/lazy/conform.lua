@@ -4,7 +4,9 @@ return {
   cmd = { "ConformInfo" },
   opts = {
     formatters_by_ft = {
-      markdown = { "prettierd" }
+      markdown = { "prettierd" },
+      terraform = { "terraform_fmt" },
+      tf = { "terraform_fmt" },
     },
     -- Set default options
     default_format_ops = {

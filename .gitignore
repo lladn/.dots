@@ -42,3 +42,9 @@ ghostty/.config/ghostty/*.local
 # Local/secret overrides you don't want committed
 *.local
 .env
+
+
+nvim/.config/configstore* 
+
+
+nvim/.config/configstore/

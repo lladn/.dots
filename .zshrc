@@ -6,9 +6,18 @@
 [[ -o login ]] || exec zsh -l
 
 # Editor and aliases
-export EDITOR='nvim'
+export EDITOR="nvim"
+export VISUAL="nvim"
 alias vv='nvim'
+alias nm='no-mistakes'
+alias cc='claude'
 alias lsg="cd ~/workspace"
+
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
 
 # History settings
 HISTFILE=~/.zsh_history
@@ -69,6 +78,32 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -U compinit; compinit
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Claude script to run the api key 
+# export ANTHROPIC_API_KEY=$(security find-generic-password -s "anthropic-api-key" -w)
+
+
+
+# The for bind tmux crtl e and a 
+bindkey -e
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
+# aws 
+
+# --- AWS Production Environment Aliases ---
+alias aws-prod-euw2="aws --profile prod --region eu-west-2"
+alias aws-prod-euw1="aws --profile prod --region eu-west-1"
+alias aws-prod-use1="aws --profile prod --region us-east-1"
+
+# --- AWS Development Environment Aliases ---
+alias aws-dev-euw2="aws --profile dev --region eu-west-2"
+alias aws-dev-euw1="aws --profile dev --region eu-west-1"
+
+## Azure devops
+autoload bashcompinit && bashcompinit
+source $(brew --prefix)/etc/bash_completion.d/az
+
 
 # Starship source at the end, don't modify
 eval "$(starship init zsh)"

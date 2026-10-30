@@ -8,6 +8,16 @@ return {
         preview = {
           treesitter = false,
         },
+        vimgrep_arguments = {
+          'rg', '--color=never', '--no-heading', '--with-filename',
+          '--line-number', '--column', '--smart-case', '--hidden',
+        },
+        file_ignore_patterns = { '%.git/' },
+      },
+      pickers = {
+        find_files = {
+          find_command = { 'rg', '--files', '--hidden', '--glob', '!.git/*' },
+        },
       },
     })
     -- local builtin = require('telescope.builtin')

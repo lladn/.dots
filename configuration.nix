@@ -68,7 +68,10 @@
     onActivation.cleanup = "zap";  # remove anything not listed here
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
-    taps = [ "morantron/tmux-fingers" "alexx855/better-resource-monitor" ];
+    taps = [
+      "morantron/tmux-fingers"
+      { name = "alexx855/better-resource-monitor"; clone_target = "https://github.com/alexx855/better-resource-monitor"; }
+    ];
     brews = [
       "herdr"  # not in nixpkgs
       "morantron/tmux-fingers/tmux-fingers"  # binary used by the TPM plugin

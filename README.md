@@ -18,4 +18,5 @@ into place with `mkOutOfStoreSymlink`, so edits in the repo apply right away.
 Put it under `home/` at the same path it has under `$HOME`, add that path to
 `home.file` in `home.nix`, then run `./rebuild.sh`.
 
-
+## NOTE
+- The `tmux` are already obsolete and will not update anymore, use `herdr`

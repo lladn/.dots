@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+## This is be obsolete not used anymore
+
 # Set the session name to '~'
 SESSION_NAME="|"
 

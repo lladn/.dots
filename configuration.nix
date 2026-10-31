@@ -24,7 +24,6 @@
     ripgrep
     rtk
     starship
-    stow
     uv
   ];
 

@@ -4,30 +4,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/). Each top-level directory is a Stow package that mirrors the target directory structure relative to `$HOME`.
+Personal dotfiles for macOS, managed with nix-darwin (`configuration.nix`) and Home Manager (`home.nix`), wired up in `flake.nix`.
 
-## Stow Commands
+## Apply Changes
 
 ```sh
-# Symlink a package into $HOME
-stow -vt ~ <package>        # e.g. stow -vt ~ home
-
-# Remove a package's symlinks
-stow -Dt ~ <package>
-
-# Remove all symlinks
-stow -D .
+./rebuild.sh   # nix-darwin switch for #mac
 ```
 
-## Packages
+## Dotfile Links
 
-| Directory | Target | Contents |
-|-----------|--------|----------|
-| `home/`   | `~/.config/` | Neovim (lazy.nvim), Ghostty, starship, mise, etc. |
-| `tmux/`   | `~/` | `.tmux.conf` |
-| `.zshrc`  | `~/` | Zsh shell config (Oh My Zsh + spaceship theme) |
+`home/` mirrors `$HOME`. `home.nix` links each entry in its `home.file` list from `~/<path>` to `home/<path>` with `mkOutOfStoreSymlink`, so edits apply without a rebuild. Adding a new path needs a rebuild.
 
-`tmux_init.sh` is a standalone bootstrap script — run it directly to create a preconfigured tmux session (not a Stow package).
+| Repo path | Linked to |
+|-----------|-----------|
+| `home/.config/{nvim,ghostty,mise,starship.toml}` | `~/.config/...` |
+| `home/.tmux.conf` | `~/.tmux.conf` |
+| `home/.claude/*` | `~/.claude/*` (`CLAUDE.md` only imports `AGENTS.md`) |
+
+Zsh is configured by `programs.zsh` in `home.nix`.
+
+`tmux_init.sh` is a standalone bootstrap script — run it directly to create a preconfigured tmux session (not linked).
 
 ## Neovim Architecture
 

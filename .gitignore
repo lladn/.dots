@@ -44,8 +44,5 @@ home/.config/ghostty/*.local
 .env
 
 
-home/.config/configstore* 
 
 
-home/.config/configstore/
-home/.config/herdr/

@@ -96,7 +96,7 @@
     };
   };
 
-  # No settings here: config lives in the repo at nvim/.config/starship.toml,
-  # and ~/.config is a stow symlink to nvim/.config.
+  # No settings here: config lives in the repo at home/.config/starship.toml,
+  # and ~/.config is a stow symlink to home/.config.
   programs.starship.enable = true;
 }

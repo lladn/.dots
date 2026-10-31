@@ -10,7 +10,7 @@ Personal dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/). E
 
 ```sh
 # Symlink a package into $HOME
-stow -vt ~ <package>        # e.g. stow -vt ~ nvim
+stow -vt ~ <package>        # e.g. stow -vt ~ home
 
 # Remove a package's symlinks
 stow -Dt ~ <package>
@@ -23,8 +23,7 @@ stow -D .
 
 | Directory | Target | Contents |
 |-----------|--------|----------|
-| `nvim/`   | `~/.config/nvim/` | Neovim config (lazy.nvim) |
-| `ghostty/` | `~/.config/ghostty/` | Ghostty terminal config |
+| `home/`   | `~/.config/` | Neovim (lazy.nvim), Ghostty, starship, mise, etc. |
 | `tmux/`   | `~/` | `.tmux.conf` |
 | `.zshrc`  | `~/` | Zsh shell config (Oh My Zsh + spaceship theme) |
 
@@ -32,7 +31,7 @@ stow -D .
 
 ## Neovim Architecture
 
-Config lives in `nvim/.config/nvim/lua/lowelad/`. Entry point is `init.lua` → `lazy_init.lua` → loads all plugins from `lua/lowelad/lazy/`.
+Config lives in `home/.config/nvim/lua/lowelad/`. Entry point is `init.lua` → `lazy_init.lua` → loads all plugins from `lua/lowelad/lazy/`.
 
 - **`lazy_init.lua`** — bootstraps lazy.nvim and points it at the `lowelad.lazy` spec directory
 - **`remap.lua`** — all keymaps via which-key; leader is `<Space>`

@@ -16,7 +16,7 @@ brew install stow
 ## setup 
 setup another folder
 ```sh 
-stow -vt ~ nvim 
+stow -vt ~ home
 ```
 
 ## Remove the stow files 

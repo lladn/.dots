@@ -57,6 +57,7 @@ in
       vv = "nvim";
       nm = "no-mistakes";
       lsg = "cd ~/workspace";
+      rebuild = "~/lladn/.dots/rebuild.sh";
 
       # kubernetes
       k = "kubectl";

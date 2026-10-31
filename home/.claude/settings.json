@@ -122,6 +122,17 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/louieladiona/.claude/commands/lint.sh'",
+            "timeout": 60
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {

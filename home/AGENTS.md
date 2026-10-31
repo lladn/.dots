@@ -20,7 +20,7 @@
 - Always respect and apply the rules from the i-have-adhd plugin to ensure on point instruction.
 - When coding use the `ponytail` skill, and invoke the `commands/lint.sh` when showing me the code output.
 - Doin PR review use the commands/pr-review.md instruction.
-- When doing commands invoke @~/.claude/RTK.md
+- When doing commands invoke @RTK.md
 
 # graphify
 - **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`

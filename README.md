@@ -19,6 +19,3 @@ Put it under `home/` at the same path it has under `$HOME`, add that path to
 `home.file` in `home.nix`, then run `./rebuild.sh`.
 
 
-## App that I like 
-- bat 
-- 

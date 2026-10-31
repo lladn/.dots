@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, user, ... }:
 
 {
   # Determinate already manages the Nix daemon, so nix-darwin shouldn't.
@@ -7,21 +7,87 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin"; # use x86_64-darwin for Intel CPU
 
-  system.primaryUser = "louieladiona";
+  system.primaryUser = user;
   system.stateVersion = 6;
+
+  # CLI tools: from nixpkgs instead of brew
+  environment.systemPackages = with pkgs; [
+    azure-cli
+    bat
+    dart-sass
+    eza
+    ffmpeg
+    hugo
+    neovim
+    pandoc
+    poppler-utils
+    ripgrep
+    rtk
+    starship
+    stow
+    uv
+  ];
+
+  fonts.packages = [ pkgs.nerd-fonts.hack ];
 
   system.defaults = {
     NSGlobalDomain = {
       AppleInterfaceStyle = "Dark";
       KeyRepeat = 2;          # fast key repeat
       InitialKeyRepeat = 15;  # short delay before repeat
-      _HIHideMenuBar = true;  # auto-hide the menu bar
+      ApplePressAndHoldEnabled = false;  # key repeat instead of accent popup
+      _HIHideMenuBar = false;  # always show the menu bar
       AppleShowAllExtensions = true;
+      AppleShowScrollBars = "WhenScrolling";
+      NSAutomaticSpellingCorrectionEnabled = false;
     };
-    dock.autohide = true;
-    finder.FXPreferredViewStyle = "Nlsv";  # list view by default
-    finder.CreateDesktop = false;          # clean desktop
-    trackpad.Clicking = true;              # tap to click
+    dock = {
+      autohide = true;
+      tilesize = 48;
+      show-recents = false;
+      wvous-tr-corner = 12;  # hot corner: Notification Center
+      wvous-bl-corner = 1;   # disabled
+      wvous-br-corner = 1;   # disabled
+      persistent-apps = [
+        "/Applications/Safari.app"
+        "/System/Applications/Mail.app"
+        "/System/Applications/Calendar.app"
+        "/System/Applications/Notes.app"
+        "/Applications/Microsoft Teams.app"
+        "/System/Applications/Messages.app"
+        "/Applications/Obsidian.app"
+        "/Applications/Ghostty.app"
+      ];
+    };
+    finder = {
+      FXPreferredViewStyle = "Nlsv";  # list view by default
+      CreateDesktop = false;          # clean desktop
+      ShowPathbar = true;
+    };
+    WindowManager.EnableStandardClickToShowDesktop = false;
   };
 
+  nix-homebrew = {
+    enable = true;
+    inherit user;
+    autoMigrate = true;  # adopt the existing /opt/homebrew install
+  };
+
+  # GUI apps and anything not in nixpkgs stay on brew, managed declaratively
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "zap";  # remove anything not listed here
+    onActivation.autoUpdate = true;
+    onActivation.extraFlags = [ "--force" ];
+    taps = [ "morantron/tmux-fingers" ];
+    brews = [
+      "herdr"  # not in nixpkgs
+      "morantron/tmux-fingers/tmux-fingers"  # binary used by the TPM plugin
+    ];
+    casks = [
+      "claude-code"
+      "ghostty"
+      "orbstack"
+    ];
+  };
 }

@@ -16,9 +16,9 @@
 - Before using "dynamic workflows", "ultra code" or any harness feature that immediately spawns a large swarm of subagents, always explain the tradeoffs and ask the user for explicit approval.
 - For multi-step plans, comparisons, or diagrams, invoke the `lavish` skill and present them as an HTML artifact. and Don't use the claude artifacts make the `lavish` a default html artifact. 
 -  Always respect and apply the rules from the i-have-adhd plugin to ensure on point instruction.
-- When coding dont put any emoji on the code, use `ponytail` skill, and when building and fixing Code Read the instruction on @CODE.md and invoke the `commands/lint.sh` when showing me the code output. 
+- When coding dont put any emoji on the code, use `ponytail` skill, and when building and fixing Code Read the instruction on @~/.claude/CODE.md and invoke the `commands/lint.sh` when showing me the code output. 
 - Doin PR review use the commands/pr-review.md instruction.
-- When doing commands invoke @RTK.md and when using `aws` cli only read-only is allowed and when doing greater permission command is needed ask the user what to do in clear instruction. 
+- When doing commands invoke @~/.claude/RTK.md and when using `aws` cli only read-only is allowed and when doing greater permission command is needed ask the user what to do in clear instruction. 
 
 # graphify
 - **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`

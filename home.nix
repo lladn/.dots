@@ -110,6 +110,7 @@ in
     ".config/mise"
     ".config/starship.toml"
     ".tmux.conf"
+    "CODE.md"
     ".claude/settings.json"
     ".claude/CLAUDE.md"
     ".claude/commands"

@@ -112,7 +112,6 @@ in
     ".tmux.conf"
     ".claude/settings.json"
     ".claude/CLAUDE.md"
-    ".claude/CODE.md"
     ".claude/commands"
   ] (path: { source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/${path}"; })
   // {

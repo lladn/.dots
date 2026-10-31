@@ -114,6 +114,6 @@ in
     ".claude/CLAUDE.md"
     ".claude/AGENTS.md"
     ".claude/CODE.md"
-    ".claude/RTK.md"
+    ".claude/commands"
   ] (path: { source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/${path}"; });
 }

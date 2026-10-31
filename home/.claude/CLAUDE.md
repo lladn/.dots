@@ -1,5 +1,5 @@
 <!-- Shared rules live in AGENTS.md; only Claude-specific rules go here. -->
-@AGENTS.md
+@~/.claude/AGENTS.md
 
 # Claude-specific instructions
 

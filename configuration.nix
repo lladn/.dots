@@ -24,7 +24,6 @@
     ripgrep
     rtk
     starship
-    stow
     uv
   ];
 
@@ -48,19 +47,9 @@
       wvous-tr-corner = 12;  # hot corner: Notification Center
       wvous-bl-corner = 1;   # disabled
       wvous-br-corner = 1;   # disabled
-      persistent-apps = [
-        "/Applications/Safari.app"
-        "/System/Applications/Mail.app"
-        "/System/Applications/Calendar.app"
-        "/System/Applications/Notes.app"
-        "/Applications/Microsoft Teams.app"
-        "/System/Applications/Messages.app"
-        "/Applications/Obsidian.app"
-        "/Applications/Ghostty.app"
-      ];
     };
     finder = {
-      FXPreferredViewStyle = "Nlsv";  # list view by default
+      FXPreferredViewStyle = "clmv";  # column view by default
       CreateDesktop = false;          # clean desktop
       ShowPathbar = true;
     };

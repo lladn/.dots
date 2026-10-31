@@ -4,27 +4,18 @@ This repository contains all of the seutp scripts that I can use to configure a 
 are being setup include the following.
 
 # Bootstrap 
-## Managing Your Dotfiles with Git and GNU Stow
+## Managing Your Dotfiles with Git and Nix Home Manager
 
-Wwe spend a lot of time customizing our environment through files like `.bashrc`, `.zshrc`, `.vimrc`, and `.tmux.conf`. These configurations make our workflow more efficient, but they can be frustrating to recreate when switching to a new machine or recovering from a mistake. By storing your dotfiles in Git, you can easily back them up, track changes, and keep them synchronized across devices. To make management even simpler, GNU Stow helps organize your dotfiles and automatically creates the necessary symlinks. Together, Git and GNU Stow provide a clean and reliable way to maintain your development environment.
+`home/` mirrors `$HOME`. Home Manager (`home.nix`) symlinks each tracked path
+into place with `mkOutOfStoreSymlink`, so edits in the repo apply right away.
 
-
-## Install Snow using brew 
+## setup
 ```sh
-brew install stow 
-```
-## setup 
-setup another folder
-```sh 
-stow -vt ~ nvim 
+./rebuild.sh
 ```
 
-## Remove the stow files 
-```sh
-stow -D . 
-```
+## Add a new dotfile
+Put it under `home/` at the same path it has under `$HOME`, add that path to
+`home.file` in `home.nix`, then run `./rebuild.sh`.
 
 
-## App that I like 
-- bat 
-- 

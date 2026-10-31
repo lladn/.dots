@@ -14,10 +14,10 @@ Thumbs.db
 *.bak
 
 # Neovim runtime/data (not part of config, shouldn't be tracked)
-nvim/.config/nvim/.luarc.json
-nvim/.config/nvim/lazy-lock.json.bak
-nvim/.config/nvim/spell/*.spl
-nvim/.config/nvim/spell/*.sug
+home/.config/nvim/.luarc.json
+home/.config/nvim/lazy-lock.json.bak
+home/.config/nvim/spell/*.spl
+home/.config/nvim/spell/*.sug
 
 # Shada / undo / session files if they ever land inside the repo
 *.shada
@@ -34,7 +34,7 @@ undodir/
 .tmux/resurrect/
 
 # Ghostty (in case any local overrides get generated)
-ghostty/.config/ghostty/*.local
+home/.config/ghostty/*.local
 
 # Stow artifacts / broken symlinks report
 *.orig
@@ -44,8 +44,5 @@ ghostty/.config/ghostty/*.local
 .env
 
 
-nvim/.config/configstore* 
 
 
-nvim/.config/configstore/
-nvim/.config/herdr/

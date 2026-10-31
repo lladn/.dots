@@ -1,0 +1,174 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk *)",
+      "Bash(ls *)",
+      "Bash(echo *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(wc *)",
+      "Bash(file *)",
+      "Bash(sort *)",
+      "Bash(uniq *)",
+      "Bash(cut *)",
+      "Bash(jq *)",
+      "Bash(tree *)",
+      "Bash(du *)",
+      "Bash(awk *)",
+      "Bash(Rscript *)",
+      "Bash(quarto render *)",
+      "Bash(sed *)",
+      "Bash(mkdir *)",
+      "Bash(aws * describe-*)",
+      "Bash(aws * list-*)",
+      "Bash(aws * get-*)",
+      "Bash(aws s3 ls *)",
+      "Bash(aws sts get-caller-identity)",
+      "Bash(aws logs tail *)",
+      "Bash(aws logs filter-log-events *)",
+      "Bash(terraform fmt*)",
+      "Bash(terraform validate*)",
+      "Bash(terraform plan*)",
+      "Bash(tofu fmt*)",
+      "Bash(tofu validate*)",
+      "Bash(tofu plan*)"
+    ],
+    "deny": [
+      "Bash(git rm *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push -f *)",
+      "Bash(git rebase*)",
+      "Bash(git restore*)",
+      "Bash(git checkout -- *)",
+      "Bash(git branch -D*)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(aws configure *)",
+      "Bash(aws secretsmanager get-secret-value*)",
+      "Bash(aws ssm get-parameter*)",
+      "Bash(aws ssm get-parameters*)",
+      "Bash(aws kms decrypt*)",
+      "Bash(aws * delete-*)",
+      "Bash(aws * put-*)",
+      "Bash(aws * create-*)",
+      "Bash(aws * update-*)",
+      "Bash(aws * terminate-*)",
+      "Bash(aws s3 rm*)",
+      "Bash(aws s3 sync*)",
+      "Bash(aws iam *)",
+      "Bash(aws sso *)",
+      "Bash(aws sts assume-role *)",
+      "Bash(aws s3 rb *)",
+      "Bash(aws s3 rm * --recursive*)",
+      "Bash(aws ec2 terminate-instances *)",
+      "Bash(aws ec2 stop-instances *)",
+      "Bash(aws rds delete-db-instance *)",
+      "Bash(aws dynamodb delete-table *)",
+      "Bash(aws cloudformation delete-stack *)",
+      "Bash(aws organizations delete-organization *)",
+      "Bash(aws route53 delete-hosted-zone *)",
+      "Bash(AWS_PROFILE=*)",
+      "Bash(AWS_SHARED_CREDENTIALS_FILE=*)",
+      "Bash(AWS_CONFIG_FILE=*)",
+      "Bash(unset AWS_*)",
+      "Bash(export AWS_*)",
+      "Bash(terraform apply*)",
+      "Bash(terraform destroy*)",
+      "Bash(terraform state*)",
+      "Bash(terraform import*)",
+      "Bash(terraform taint*)",
+      "Bash(terraform untaint*)",
+      "Bash(terraform refresh*)",
+      "Bash(terraform force-unlock*)",
+      "Bash(terraform workspace delete*)",
+      "Bash(tofu apply*)",
+      "Bash(tofu destroy*)",
+      "Bash(tofu state*)",
+      "Bash(tofu import*)",
+      "Bash(tofu taint*)",
+      "Bash(tofu untaint*)",
+      "Bash(tofu refresh*)",
+      "Bash(tofu force-unlock*)",
+      "Bash(tofu workspace delete*)"
+    ]
+  },
+  "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/louieladiona/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/louieladiona/.claude/commands/lint.sh'",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "i-have-adhd@i-have-adhd": true,
+    "ponytail@ponytail": true,
+    "cc-plugin-telemetry@builtin": false
+  },
+  "extraKnownMarketplaces": {
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "spinnerTipsEnabled": false,
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "Thinking..."
+    ]
+  },
+  "modelSettings": {
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "theme": "dark",
+  "autoCompactEnabled": true,
+  "autoCompactThreshold": 80,
+  "notifications": true,
+  "autoUpdate": true
+}

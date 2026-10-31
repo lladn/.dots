@@ -1,5 +1,8 @@
-{ pkgs, user, ... }:
+{ config, lib, pkgs, user, ... }:
 
+let
+  dotfiles = "/Users/${user}/lladn/.dots";
+in
 {
   home.username = user;
   home.homeDirectory = "/Users/${user}";
@@ -96,7 +99,24 @@
     };
   };
 
-  # No settings here: config lives in the repo at nvim/.config/starship.toml,
-  # and ~/.config is a stow symlink to nvim/.config.
+  # No settings here: config lives in the repo at home/.config/starship.toml.
   programs.starship.enable = true;
+
+  # Live symlinks into the repo (edits apply without a rebuild).
+  # home/ mirrors $HOME, so each entry links ~/<path> to home/<path>.
+  home.file = lib.genAttrs [
+    ".config/nvim"
+    ".config/ghostty"
+    ".config/mise"
+    ".config/starship.toml"
+    ".tmux.conf"
+    "CODE.md"
+    ".claude/settings.json"
+    ".claude/CLAUDE.md"
+    ".claude/commands"
+  ] (path: { source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/${path}"; })
+  // {
+    # Agent-agnostic rules, shared by every agent that reads AGENTS.md.
+    ".claude/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  };
 }

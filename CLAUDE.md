@@ -20,7 +20,8 @@ Personal dotfiles for macOS, managed with nix-darwin (`configuration.nix`) and H
 |-----------|-----------|
 | `home/.config/{nvim,ghostty,mise,starship.toml}` | `~/.config/...` |
 | `home/.tmux.conf` | `~/.tmux.conf` |
-| `home/.claude/{settings.json,CLAUDE.md,AGENTS.md,CODE.md,commands}` | `~/.claude/...` (`CLAUDE.md` only imports `AGENTS.md`) |
+| `home/AGENTS.md` | `~/.claude/AGENTS.md` (agent-agnostic rules) |
+| `home/.claude/{settings.json,CLAUDE.md,CODE.md,commands}` | `~/.claude/...` (`CLAUDE.md` only imports `AGENTS.md`) |
 
 Zsh is configured by `programs.zsh` in `home.nix`.
 

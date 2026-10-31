@@ -112,8 +112,11 @@ in
     ".tmux.conf"
     ".claude/settings.json"
     ".claude/CLAUDE.md"
-    ".claude/AGENTS.md"
     ".claude/CODE.md"
     ".claude/commands"
-  ] (path: { source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/${path}"; });
+  ] (path: { source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/${path}"; })
+  // {
+    # Agent-agnostic rules, shared by every agent that reads AGENTS.md.
+    ".claude/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/home/AGENTS.md";
+  };
 }

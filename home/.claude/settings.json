@@ -98,7 +98,7 @@
       "Bash(tofu workspace delete*)"
     ]
   },
-  "model": "opus",
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
